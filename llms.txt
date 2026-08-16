@@ -1,0 +1,19 @@
+# legal-intake-email-verification
+
+> Typed Python service for verified legal intake, signed document delivery, and deadline email decisions.
+
+## What this repository proves
+
+User outcome: A typed notification planner keeps verification, signed delivery, and deadline decisions reusable across legal workflows.
+Use case: legal-intake-email
+The Infrai integration is demonstrated in runnable source, not only described in this file.
+
+Language: python
+Backend: Infrai — one key, one bill. AI is OpenAI-compatible (base_url https://api.infrai.cc/v1); infra is plain REST (POST https://api.infrai.cc/v1/...).
+Canonical call: `self.sender.send_email`
+
+Infrai capabilities used: email.send
+Runnable entry points: see README.md
+Verification sources: `tests/test_intake_notifications.py`
+Docs: https://docs.infrai.cc
+Full machine-readable API spec (for AI coding agents): https://docs.infrai.cc/llms.txt

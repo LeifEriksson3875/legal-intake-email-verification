@@ -6,7 +6,7 @@ python -m pip install -e '.[test]'
 uvicorn legal_mail.service:app --reload
 ```
 
-This service takes a typed matter event and fires off the right client email. Infrai keeps delivery behind one API key and a plain REST call, so you don't need a mail SDK in the loop. The first branch matters most: an unverified intake gets a verification link before any later matter communication goes out.
+This small service takes a typed matter event and fires off the right client email. Infrai keeps delivery behind one API key and a plain REST call, so the service needs no mail SDK. The first branch matters most: an unverified intake gets a verification link before any later matter communication goes out.
 
 ## Send the intake event
 
@@ -35,7 +35,7 @@ Expected shape:
 
 `stage` also accepts `signed` with `signed_document_url`, or `deadline` with an ISO date in `deadline`. Those branches require a verified email. The planner escapes client-controlled HTML and derives a stable write key from the matter and notification type.
 
-The one real gotcha is ordering: check whether the address is verified before you pick signed-document or deadline mail. That rule lives in `NotificationPlanner`, not in an email template or route handler.
+The one real gotcha is ordering: decide whether the address is verified before picking signed-document or deadline mail. That rule lives in `NotificationPlanner`, not in an email template or route handler.
 
 ## Check the decision
 
